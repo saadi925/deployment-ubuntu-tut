@@ -1,0 +1,56 @@
+Serves as a 
+Webserver 
+Gateway
+Offers :
+Reverse Proxy
+Rate Limit 
+Host Static sites 
+Host Multiple sites 
+Caching 
+Load Balancing. 
+
+Extendable
+ (custom logic or custom functionality using lua or javascript(mjs).)
+
+EC2 instance (Amazon using for this course)
+ 
+can run in docker or contaner too . 
+
+
+sudo apt update 
+sudo apt install nginx
+
+can check status
+sudo systemctl status nginx
+
+cd/etc/nginx
+cd/etc/nginx/nginx.conf 
+entry point for nginx x
+
+include 
+(is a directive which includes the mentioned files)
+
+
+somefiles are in the http block which are included.
+
+cd sites-enabled 
+sudo vim default
+
+we see a directive of nginx with listen (listening on port) in the server block
+first listen is for IPv4 while second is ffor IPv6
+
+we see 
+root directive 
+ root /var/www/html
+
+
+and a directive 
+server_name _;
+
+
+cd/var/www/html 
+ls 
+index.nginx-debian.html
+
+sudo vim index.nginx_debian.html
+

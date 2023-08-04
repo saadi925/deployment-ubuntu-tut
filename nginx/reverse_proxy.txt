@@ -1,0 +1,49 @@
+http:IP:3000/products
+security prob and port prob
+
+
+
+here we use reverse proxy 
+______                            or  (nTls)
+______|--https--> nginx  _________http_______|         :3000     
+______|         :80                          |_______node server  
+______|          :443 -- TLS terminating
+                   _______                         
+                         |_______ loadbalancer
+
+
+
+upstream backend{
+      server localhost:8000 ;
+      server localhost:8001 down;
+}
+
+
+
+server {
+ listen 80;
+ server_name api.codestacklab.com;
+      location /{
+            add_header Cache-Control no-store ; (storing cache is good but we are controlling it only to check load balancers)
+            proxy_pass http://backend;
+      }
+} 
+
+sudo nginx -t 
+sudo systenctl reload nginx 
+
+cd /var/www/node_api
+node server.ts
+
+
+loadbalancing 
+round robbing
+weight=3
+backup
+down
+
+server ko
+as down mark krey . 
+502 Bad Gateway
+
+cd /etc/nginx/conf.d/api.codestack.com.conf

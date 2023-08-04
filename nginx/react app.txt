@@ -1,0 +1,14 @@
+react static app static build
+client side navigation .
+server {
+ listen 80;
+ root /var/www/react-app;
+
+ server_name _;
+ 
+ index index.html index.htm;
+ location / {
+   try_files $uri $uri/ /index.html ;
+ }
+}
+

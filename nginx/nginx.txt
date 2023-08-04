@@ -1,0 +1,101 @@
+configuration of nginx 
+tree stucture (heirarical)
+
+each block has it's own setting and we can overwrite in the child block
+main (main block or context)
+   1 no . of worker processors
+   2 username
+   3 Location of process Id
+
+ 
+  Events (child of main)
+ 
+  1 number of connections per worker processor 
+  2 More Events in Documentation 
+ 
+  Stream
+  (request can be TCP or UDP)
+  TCP IP has layers  
+  for layer 3 & 4 we can config it here . 
+
+ HTTP (most used block)
+  process requests
+  have virtual servers
+  Log location
+  Server (block)
+   virtual servers (virtual hosts)
+   Location (block)
+    routing (url or paths)
+  UpStream(block)
+   when we use reverse proxy 
+   and we also use loadbalancing then we use upstream blocks 
+
+sudo vim /etc/nginx/nginx.conf
+
+nginx starts reading config from this.
+
+
+
+we are including
+ include /etc/nginx/config.d/*.conf
+ include /etc/nginx/sites-enabled/*
+
+cd /etc/nginx/config.d
+ls 
+empty 
+
+it is recomended to create config files in this folder 
+
+ubuntu gives us sites-enabled and sites-available but it is not recomended
+
+cd sites-enabled 
+sudo vim default
+
+
+sudo vim var/www/html/index.nginx-debian.html
+
+if not in ubuntu then
+user/nginx/html
+
+
+we use # for commenting like we do in python 
+# include /etc/nginx/sites-enabled/*
+/etc/nginx
+we will load the config from conf.d file
+sudo nginx -t
+
+sudo systemctl reload nginx
+cd config.d
+now we can have all the config in one file or different files
+
+for example if we have hosted multiple websites we can have different files for each 
+special convention for creating it 
+sudo vim code.codestacklab.com.conf
+
+create a server or upstream 
+for static or like react content
+server block also called virtual server
+server {
+ listen 80 default_server;
+ root /var/www/codestack;
+
+ server_name _;
+ 
+ index index.html index.htm;
+ location / {
+   try_files $uri $uri=404 ;
+ }
+}
+
+
+
+location ~   (is regular exp)
+location = (for ,matched paths)
+
+uri is everything after the domain name 
+
+cd /var/www 
+
+sudo git clone https://..... codestack
+ls 
+codestack

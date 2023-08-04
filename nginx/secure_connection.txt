@@ -1,0 +1,14 @@
+certbot 
+free ssl certificate 
+let's encrypt 
+
+lsb_release -a
+
+sudo apt update 
+sudo apt install snap
+sudo snap install core; sudo snap refresh core
+
+sudo snap install  --classic certbot
+sudo ln -s /snap/bin/certbot/usr/bin/certbot
+sudo certbot --nginx
+enter email address
