@@ -1,0 +1,38 @@
+sudo apt update 
+
+sudo apt install nginx
+
+
+sudo ufw app list (shows available app list )
+Allow Nginx through the firwall 
+sufo ufw allow 'Nginx Full'
+
+sudo apt install mysql-server
+
+sudo mysql 
+
+sudo apt install php-fpm php-mysql 
+
+cd/var/www/html
+
+sudo vim filename.php
+
+edit the file
+
+sudo service nginx restart  
+
+cd/etc/nginx/sites-available/
+
+vim default 
+
+add the new filname.html
+location ~ \.php{
+and 
+uncomment
+fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+
+
+include fastcgi_params ;
+fastcgi_index index.php;
+fastcggi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+}

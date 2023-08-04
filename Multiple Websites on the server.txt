@@ -1,0 +1,12 @@
+sudo htop
+(checks for cpu utilization like task manager)
+
+Add an A Record
+(DSN or Domain => is pointing to this IP )
+
+then 
+create directories for individual sites
+sudo mkdir -p /var/www/genstyles.in
+cd genstyles.in/
+sudo vim index.html
+

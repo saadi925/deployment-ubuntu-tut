@@ -1,0 +1,23 @@
+sudo apt update 
+
+sudo apt install phpmyadmin php-mbstring php-zip php-zip php-gd php-json php-curl 
+
+space tab enter (select apache 2)
+sudo mysql 
+
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH cacching _sha2_password BY 'mypassword';
+
+SELECT user,authentication_string,plugin,host  FROM mysql.user;
+
+sudo myql -u root -p
+
+Configure a no roo user in mysql
+
+CREATE USER 'saadi'@'localhost' IDENTIFIED WITH cacching _sha2_password BY 'mypassword';
+
+GRANT ALL PRIVILLEGES ON *.* TO 'saadi'@'localhost' WITH GRANT OPTION;
+
+exit 
+
+Acessing mySql

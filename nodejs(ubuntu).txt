@@ -1,0 +1,57 @@
+ curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+
+
+sudo apt-get install -y nodejs
+
+node --version && npm --version
+
+//
+incase of host key verification failed.
+cd .ssh\ 
+rm .\known_hosts
+//
+
+cd /home/
+creating a sample node js file 
+sudo vi app.js
+
+write boilder plate code for testing 
+
+npm install express 
+npm install 
+
+pm2 is a process manager(we can deploy more than 1 app on the server and it mages the processes)
+sudo npm i pm2 -g
+pm2 start app.js
+
+Configuring nginx as a reverse proxy 
+
+sudo apt install nginx
+
+create a conf file for node app 
+sudo vi /etc/nginx/sites-available/nodeApp
+
+copy content to this file 
+server{
+    server_name _server_ip;
+
+    location /{
+        proxy_pass http:localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade'
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+
+    }
+}
+
+Activate this configuration using the cmd 
+sudo In -s /etc/nginx/sites-available/nodeApp /etc/nginx/sites-enabled
+
+cd /etc/nginx/sites-available 
+cd ../  
+cd sites-enabled 
+sudo rm default
+
+sudo service nginx restart

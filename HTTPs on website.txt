@@ -1,0 +1,24 @@
+Let' Encrypt SSL
+
+Installation 
+sudo apt install certbot python3-cerbot-apache
+
+Step 2 
+Allow https through the firewall and configure apache2 virtual hosts
+
+sudo ufw allow 'Apache Full'
+
+Step 3  
+Obtain SSL CERTIFICATE 
+
+sudo certbot --apache 
+
+sudo service apache2 restart
+
+Step 4 Test the auto renewal process 
+sudo systemctl status certbot.time
+
+sudo certbot renew --dry-run
+
+
+

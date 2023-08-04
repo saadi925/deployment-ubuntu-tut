@@ -1,0 +1,31 @@
+Linux
+Apache
+My SQL
+PHP 
+
+sudo apt update
+(This Cmd update the package lists for upgrades.)
+
+sudo apt install apache2
+
+firewall 
+sudo ufw allow in "Apache Full"
+
+sudu ufw status
+
+sudo apt install mysql-server
+
+sudo mysql 
+(can enter database queries)
+
+sudo apt install php libapache2-mod-php php-mysql
+
+cd/var/www/html/
+sudo vim index.html
+
+ls 
+index.html
+
+
+sudo service apache2 restart 
+(for restarting the apache server)
